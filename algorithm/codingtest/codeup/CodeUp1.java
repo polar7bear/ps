@@ -3,6 +3,7 @@ package algorithm.codingtest.codeup;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CodeUp1 {
@@ -91,6 +92,205 @@ public class CodeUp1 {
             a[1] = "0";
         }
         System.out.println(a[1]);
+    }
+
+    public void codeUp1027() throws IOException {
+        //1027 년원일 입력받아 형식 바꿔 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split("\\.");
+        String[] b = new String[a.length];
+
+        for (int i = a.length - 1, j = 0; i >= 0; i--, j++) {
+            b[j] = a[i];
+        }
+        String c = String.join("-", b);
+        System.out.println(c);
+    }
+
+    public void codeUp1028() throws IOException {
+        //정수 1개 입력받아 그대로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        long a = Long.parseLong(br.readLine());
+
+        System.out.println(a);
+    }
+
+    public void codeUp1029() throws IOException {
+        //1029 실수 1개 입력받아 그대로 출력하기  (소수점 이하 11자리까지 출력)
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        double a = Double.parseDouble(br.readLine());
+
+        System.out.printf("%.11f", a);
+    }
+
+    public void codeUp1030() throws IOException {
+        //1030 정수 1개 입력받아 그대로 출력하기3
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        long a = Long.parseLong(br.readLine());
+
+        System.out.println(a);
+    }
+
+    public void codeUp1031() throws IOException {
+        //1031 10진 정수 1개 입력받아 8진수로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+
+        System.out.printf("%o", a);
+    }
+
+    public void codeUp1032() throws IOException {
+        //1032 10진 정수 입력받아 16진수로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+
+        System.out.printf("%x", a);
+    }
+
+    public void codeUp1033() throws IOException {
+        //10진 정수 입력받아 16진수 대문자로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+
+        System.out.printf("%X", a);
+    }
+
+    public void codeUp1034() throws IOException {
+        //8진 정수 1개 입력받아 10진수로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String a = br.readLine();
+
+        int b = Integer.parseInt(a, 8);
+        System.out.printf("%d", b);
+    }
+
+    public void codeUp1035() throws IOException {
+        //16진수 정수 1개 입력받아 8진수로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String a = br.readLine();
+
+        int b = Integer.parseInt(a, 16);
+        System.out.printf("%o", b);
+    }
+
+    public void codeUp1036() throws IOException {
+        //영문자 1개 입력받아 10진수로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = br.read();
+        System.out.println(a);
+    }
+
+    public void codeUp1037() throws IOException {
+        //정수 입력받아 아스키문자로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        short a = Short.parseShort(br.readLine());
+        char b = (char) a;
+        System.out.println(b);
+    }
+
+    public void codeUp1038() throws IOException {
+        //1038 정수 2개 입력받아 합 출력하기1
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        long[] b = new long[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            b[i] = Long.parseLong(a[i]);
+        }
+        System.out.println(b[0] + b[1]);
+    }
+
+    public void codeUp1040() throws IOException {
+        //정수 1개 입력받아 부호 바꿔 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+
+        System.out.println(a * -1);
+    }
+
+    public void codeUp1041() throws IOException {
+        //문자 1개 입력받아 다음 문자 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        char a = (char) br.read();
+
+        System.out.println((char) (a + 1));
+    }
+
+    public void codeUp1042() throws IOException {
+        //정수 2개 입력받아 나눈 몫 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = new int[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            b[i] = Integer.parseInt(a[i]);
+        }
+        System.out.println(b[0] / b[1]);
+    }
+
+    public void codeUp1043() throws IOException {
+        //정수 2개 입력받아 나눈 나머지 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = new int[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            b[i] = Integer.parseInt(a[i]);
+        }
+        System.out.println(b[0] % b[1]);
+    }
+
+    public void codeUp1044() throws IOException {
+        //정수 1개 입력받아 1 더해 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        long a = Long.parseLong(br.readLine());
+
+        System.out.println(a + 1);
+    }
+
+    public void codeUp1045() throws IOException {
+        //정수 2개 입력받아 자동 계산하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();   //문자열 배열을 정수 배열로 변환 (for문을 쓰지 않은 방식)
+
+        System.out.println(b[0] + b[1]);
+        System.out.println(b[0] - b[1]);
+        System.out.println(b[0] * b[1]);
+        System.out.println(b[0] / b[1]);
+        System.out.println(b[0] % b[1]);
+        System.out.printf("%.2f", ((float) b[0] / b[1]));
+    }
+
+    public void codeUp1046() throws IOException {
+        //정수 3개 입력받아 합과 평균 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();   //문자열 배열을 정수 배열로 변환 (for문을 쓰지 않은 방식)
+        int sum = b[0] + b[1] + b[2];
+        float avg = ((float) sum / b.length);
+
+        System.out.printf(sum + "\n" + "%.1f", avg);
+    }
+
+    public void codeUp1048() throws IOException {
+        //한 번에 2의 거듭제곱 배로 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        //자바의 경우 제곱 연산자가 없기때문에 Math 클래스의 pow(밑, 지수) 메서드를 사용해야함.
+        System.out.println(b[0] * (int) Math.pow(2, b[1]));
+    }
+
+    public void codeUp1049() throws IOException {
+        //두 정수 입력받아 비교하기1
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        int i = (b[0] > b[1]) ? 1 : 0;
+        System.out.println(i);
     }
 
 }
