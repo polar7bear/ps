@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.stream.IntStream;
 
 public class CodeUp1 {
 
@@ -408,5 +409,173 @@ public class CodeUp1 {
 
         int result = (b1) ?1 :0;
         System.out.println(result);
+    }
+
+    public void codeUp1059() throws IOException {
+        //비트단위로 NOT하여 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        System.out.println(~a); //~연산자는 2의 보수를 반환
+    }
+
+    public void codeUp1060() throws IOException {
+        //비트단위로 AND 하여 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        // & (AND)연산자는 각각의 이진수에서 두 수 모두 1인 자리만 1로 만들어줌.
+        System.out.println(b[0] & b[1]);
+    }
+
+    public void codeUp1061() throws IOException {
+        //비트단위로 OR 하여 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        // | (OR)연산자는 각각의 이진수에서 둘 중 하나라도 1인 자리를 1로 만들어줌.
+        System.out.println(b[0] | b[1]);
+    }
+
+    public void codeUp1062() throws IOException {
+        //비트단위로 XOR 하여 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        //^ (XOR)연산자는 각각의 이진수중에서 둘 중 서로 다른자리만 1로 만들어줌.(같은자리는 0이겠죠?)
+        System.out.println(b[0] ^ b[1]);
+    }
+
+    public void codeUp1063() throws IOException {
+        //두 정수 입력받아 큰 수 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        int result = (b[0] > b[1]) ?b[0] :b[1];
+        //int result = Math.max(b[0], b[1]); Math 클래스의 max() 메서드를 사용해도됨.
+
+        System.out.println(result);
+    }
+
+    public void codeUp1064() throws IOException {
+        //정수 3개 입력받아 가장 작은 수 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        int min = 0;
+        if(b[0] > b[1] && b[2] > b[1]) {
+            min = b[1];
+        } else if(b[1] > b[2] && b[0] > b[2]) {
+            min = b[2];
+        } else {
+            min = b[0];
+        }
+
+        System.out.println(min);
+    }
+
+    public void codeUp1065() throws IOException {
+        //정수 3개 입력받아 짝수만 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        for(int i = 0; i<b.length; i++) {
+            if(b[i] % 2 == 0) {
+                System.out.println(b[i]);
+            }
+        }
+    }
+
+    public void codeUp1066() throws IOException {
+        //정수 3개 입력받아 짝/홀 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        for(int i = 0; i<b.length; i++) {
+            if(b[i] % 2 == 0) {
+                System.out.println("even");
+            } else if(b[i] % 2 == 1) {
+                System.out.println("odd");
+            }
+        }
+    }
+
+    public void codeUp1067() throws IOException {
+        //정수 1개 입력받아 분석하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        if (a > 0) {
+            System.out.println("plus");
+        } else if (a < 0) {
+            System.out.println("minus");
+        }
+        if (a % 2 == 0) {
+            System.out.println("even");
+        } else {
+            System.out.println("odd");
+        }
+    }
+
+    public void codeUp1068() throws IOException {
+        //정수 1개 입력받아 평가 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        boolean lim = 100 >= a && a >= 0;
+        if (lim) {
+            if (a >= 90) {
+                System.out.println("A");
+            } else if (a >= 70) {
+                System.out.println("B");
+            } else if (a >= 40) {
+                System.out.println("C");
+            } else {
+                System.out.println("D");
+            }
+        }
+    }
+
+    public void codeUp1069() throws IOException {
+        //평가 입력받아 다르게 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        char a = (char) br.read();
+        switch (a) {
+            case 'A':
+                System.out.println("best!!!");
+                break;
+            case 'B':
+                System.out.println("good!!");
+                break;
+            case 'C':
+                System.out.println("run!");
+                break;
+            case 'D':
+                System.out.println("slowly~");
+                break;
+            default:
+                System.out.println("what?");
+        }
+    }
+
+    public void codeUp1070() throws IOException {
+        //월 입력받아 계절 출력하기 (원래는 switch문을 사용하라고 힌트가 있었지만, 좀 색다른 방법으로 풀어보고자 하여 2차원배열로 풀어보았다.
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        //                   겨울        봄        여름         가을
+        int[][] season = {{12, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}};
+
+        for (int i = 0; i < season.length; i++) {   //1차 배열 인덱스 접근
+            if (IntStream.of(season[i]).anyMatch(s -> s == a)) {    //만약 1차배열중 입력받은 숫자가 포함되면
+                if (season[i] == season[0]) {
+                    System.out.println("winter");
+                } else if (season[i] == season[1]) {
+                    System.out.println("spring");
+                } else if (season[i] == season[2]) {
+                    System.out.println("summer");
+                } else if (season[i] == season[3]) {
+                    System.out.println("fall");
+                }
+            }
+        }
     }
 }

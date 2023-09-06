@@ -1,20 +1,29 @@
-import com.sun.jdi.BooleanType;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] a = br.readLine().split(" ");
-        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+        int a = Integer.parseInt(br.readLine());
+        //                   겨울        봄        여름         가을
+        int[][] season = {{12, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}};
 
-        //두 수가 거짓일 경우에만 참(1)을 출력
-        boolean b1 = b[0] == 0 && b[1] == 0;
+        for (int i = 0; i < season.length; i++) {   //1차 배열 인덱스 접근
+            if (IntStream.of(season[i]).anyMatch(s -> s == a)) {    //만약 1차배열중 입력받은 숫자가 포함되면
+                if (season[i] == season[0]) {
+                    System.out.println("winter");
+                } else if (season[i] == season[1]) {
+                    System.out.println("spring");
+                } else if (season[i] == season[2]) {
+                    System.out.println("summer");
+                } else if (season[i] == season[3]) {
+                    System.out.println("fall");
+                }
+            }
+        }
 
-        int result = (b1) ?1 :0;
-        System.out.println(result);
+
     }
 }
