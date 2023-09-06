@@ -293,4 +293,120 @@ public class CodeUp1 {
         System.out.println(i);
     }
 
+    public void codeUp1051() throws IOException {
+        //두 정수 입력받아 비교하기3
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        int result = (b[0] <= b[1]) ? 1 : 0;
+        System.out.println(result);
+    }
+
+    public void codeUp1052() throws IOException {
+        //두 정수 입력받아 비교하기4
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        int result = (b[0] != b[1]) ? 1 : 0;
+        System.out.println(result);
+    }
+
+    public void codeUp1053() throws IOException {
+        //참 거짓 바꾸기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        boolean bool = a == 0 || a == 1;
+
+        if (bool) {
+            if (a == 1) {
+                a = 0;
+                System.out.println(a);
+            } else {
+                a = 1;
+                System.out.println(a);
+            }
+        }
+    }
+
+    public void codeUp1054() throws IOException {
+        //둘 다 참일 경우만 참 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        boolean b1 = b[0] == b[1];
+
+        if(b[0] == 0 && b[1] == 0) {
+            b1 = false;
+        }
+        int result = (b1) ?1 :0;
+        System.out.println(result);
+    }
+
+    public void codeUp1055() throws IOException {
+        //하나라도 참이면 참 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        boolean b1 = b[0] != b[1];
+        if(b[0] == b[1]) {
+            b1 = true;
+        }
+        if(b[0] == 0 && b[1] == 0) {
+            b1 = false;
+        }
+        int result = (b1) ?1 :0;
+        System.out.println(result);
+    }
+
+    public void codeUp1056() throws IOException {
+        //참/거짓이 서로 다를 때에만 참 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        //두 수가 서로 다르면 1, 같으면 0을 출력
+        boolean b1 = b[0] == b[1];
+        if(b1) {
+            b1 = true;
+        } else if(b[0] != b[1]) {
+            b1 = false;
+        }
+
+        int result = (b1) ?0 :1;
+        System.out.println(result);
+    }
+
+    public void codeUp1057() throws IOException {
+        //참/거짓이 서로 같을 때에만 참 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        boolean b1 = b[0] == b[1];
+        if(b1) {
+            b1 = true;
+        } else if(b[0] != b[1]) {
+            b1 = false;
+        }
+
+        int result = (b1) ?1 :0;
+        System.out.println(result);
+    }
+
+    public void codeUp1058() throws IOException {
+        //둘 다 거짓일 경우만 참 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] a = br.readLine().split(" ");
+        int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
+
+        //두 수가 거짓일 경우에만 참(1)을 출력
+        boolean b1 = b[0] == 0 && b[1] == 0;
+
+        int result = (b1) ?1 :0;
+        System.out.println(result);
+    }
 }
