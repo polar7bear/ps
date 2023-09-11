@@ -1,8 +1,6 @@
 package algorithm.codingtest.codeup;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.stream.IntStream;
@@ -339,10 +337,10 @@ public class CodeUp1 {
 
         boolean b1 = b[0] == b[1];
 
-        if(b[0] == 0 && b[1] == 0) {
+        if (b[0] == 0 && b[1] == 0) {
             b1 = false;
         }
-        int result = (b1) ?1 :0;
+        int result = (b1) ? 1 : 0;
         System.out.println(result);
     }
 
@@ -353,13 +351,13 @@ public class CodeUp1 {
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
 
         boolean b1 = b[0] != b[1];
-        if(b[0] == b[1]) {
+        if (b[0] == b[1]) {
             b1 = true;
         }
-        if(b[0] == 0 && b[1] == 0) {
+        if (b[0] == 0 && b[1] == 0) {
             b1 = false;
         }
-        int result = (b1) ?1 :0;
+        int result = (b1) ? 1 : 0;
         System.out.println(result);
     }
 
@@ -371,13 +369,13 @@ public class CodeUp1 {
 
         //두 수가 서로 다르면 1, 같으면 0을 출력
         boolean b1 = b[0] == b[1];
-        if(b1) {
+        if (b1) {
             b1 = true;
-        } else if(b[0] != b[1]) {
+        } else if (b[0] != b[1]) {
             b1 = false;
         }
 
-        int result = (b1) ?0 :1;
+        int result = (b1) ? 0 : 1;
         System.out.println(result);
     }
 
@@ -388,13 +386,13 @@ public class CodeUp1 {
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
 
         boolean b1 = b[0] == b[1];
-        if(b1) {
+        if (b1) {
             b1 = true;
-        } else if(b[0] != b[1]) {
+        } else if (b[0] != b[1]) {
             b1 = false;
         }
 
-        int result = (b1) ?1 :0;
+        int result = (b1) ? 1 : 0;
         System.out.println(result);
     }
 
@@ -407,7 +405,7 @@ public class CodeUp1 {
         //두 수가 거짓일 경우에만 참(1)을 출력
         boolean b1 = b[0] == 0 && b[1] == 0;
 
-        int result = (b1) ?1 :0;
+        int result = (b1) ? 1 : 0;
         System.out.println(result);
     }
 
@@ -450,7 +448,7 @@ public class CodeUp1 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] a = br.readLine().split(" ");
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
-        int result = (b[0] > b[1]) ?b[0] :b[1];
+        int result = (b[0] > b[1]) ? b[0] : b[1];
         //int result = Math.max(b[0], b[1]); Math 클래스의 max() 메서드를 사용해도됨.
 
         System.out.println(result);
@@ -462,9 +460,9 @@ public class CodeUp1 {
         String[] a = br.readLine().split(" ");
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
         int min = 0;
-        if(b[0] > b[1] && b[2] > b[1]) {
+        if (b[0] > b[1] && b[2] > b[1]) {
             min = b[1];
-        } else if(b[1] > b[2] && b[0] > b[2]) {
+        } else if (b[1] > b[2] && b[0] > b[2]) {
             min = b[2];
         } else {
             min = b[0];
@@ -479,8 +477,8 @@ public class CodeUp1 {
         String[] a = br.readLine().split(" ");
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
 
-        for(int i = 0; i<b.length; i++) {
-            if(b[i] % 2 == 0) {
+        for (int i = 0; i < b.length; i++) {
+            if (b[i] % 2 == 0) {
                 System.out.println(b[i]);
             }
         }
@@ -492,10 +490,10 @@ public class CodeUp1 {
         String[] a = br.readLine().split(" ");
         int[] b = Arrays.stream(a).mapToInt(Integer::parseInt).toArray();
 
-        for(int i = 0; i<b.length; i++) {
-            if(b[i] % 2 == 0) {
+        for (int i = 0; i < b.length; i++) {
+            if (b[i] % 2 == 0) {
                 System.out.println("even");
-            } else if(b[i] % 2 == 1) {
+            } else if (b[i] % 2 == 1) {
                 System.out.println("odd");
             }
         }
@@ -578,4 +576,44 @@ public class CodeUp1 {
             }
         }
     }
+
+    public void codeUp1071() throws IOException {
+        //0 입력될 때까지 무한 출력하기1
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] strArr = br.readLine().split(" ");
+
+        int[] intArr = Arrays.stream(strArr)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        for (int i : intArr) {
+            if (i == 0) break;
+            System.out.println(i);
+        }
+    }
+
+    class codeUp1072 {
+        //1072 정수 입력받아 계속 출력하기
+        public BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        public StringTokenizer st;
+
+        void answer(int cnt) throws IOException {
+            bw.write(st.nextToken());
+            bw.newLine();
+
+            if (cnt > 1) { //재귀 함수
+                answer(cnt - 1);
+            }
+        }
+
+        public void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String cnt = br.readLine();
+            String str = br.readLine();
+            st = new StringTokenizer(str, " "); //공백을 기준으로 한 개의 토큰으로
+            answer(st.countTokens());                 // 토큰의 개수
+            bw.flush();
+        }
+    }
+
 }
