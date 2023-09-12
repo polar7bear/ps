@@ -736,4 +736,53 @@ public class CodeUp1 {
         }
     }
 
+    public void codeUp1082() throws IOException {
+        //16진수 구구단
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(16); // nextInt(16) 16진법으로 받아올 수 있음.
+
+        for(int i = 1; i <= 15; i++) {
+            System.out.printf("%X*%X=%X\n", a, i, a * i);
+        }
+    }
+
+    public void codeUp1083() throws IOException {
+        //3 6 9 게임의 왕이 되자
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+
+        for (int i = 1; i <= a; i++) {
+            if (i % 3 == 0) {
+                System.out.print("X ");
+            } else {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public void codeUp1084() throws IOException {
+        //빛 섞어 색 만들기
+        Scanner sc = new Scanner(System.in);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        //3중 for문으로 인해 메모리 효율을 높이기 위해 sout 대신 BufferedWriter 클래스 사용.
+
+        int r = sc.nextInt();
+        int g = sc.nextInt();
+        int b = sc.nextInt();
+        int cnt = 0;
+
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < g; j++) {
+                for (int k = 0; k < b; k++) {
+                    String str = i + " " + j + " " + k;
+                    bw.write(str + "\n");
+                    cnt++;
+                    bw.flush();
+                }
+            }
+        }
+        bw.write(Integer.toString(cnt));
+        bw.close();
+    }
+
 }
