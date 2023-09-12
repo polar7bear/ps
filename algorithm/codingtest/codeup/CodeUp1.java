@@ -2,6 +2,7 @@ package algorithm.codingtest.codeup;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 
@@ -613,6 +614,125 @@ public class CodeUp1 {
             st = new StringTokenizer(str, " "); //공백을 기준으로 한 개의 토큰으로
             answer(st.countTokens());                 // 토큰의 개수
             bw.flush();
+        }
+    }
+
+    public void codeUp1073() throws IOException {
+        //1073 0 입력될 때까지 무한 출력하기2
+        //1071 문제와 비슷하지만 이 문제는 while 문과 BufferedWriter, StringTokenizer를 사용 해보았음.
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        while(st.hasMoreTokens()) {
+            String token = st.nextToken();  //nextToken()을 변수에 담고 while문 안에 포함 시켜줘야 함.
+            if(token.equals("0")) break;
+            bw.write(token);
+            bw.newLine();
+        }
+        bw.flush();
+    }
+
+    public void codeUp1074() throws IOException {
+        //정수 1개 입력받아 카운트다운 출력하기1
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        while(a >= 1) {
+            System.out.println(a);
+            a -= 1;
+        }
+    }
+
+    public void codeUp1075() throws IOException {
+        //정수 1개 입력받아 카운트다운 출력하기2
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        while(a != 0) {
+            a -= 1;
+            System.out.println(a);
+        }
+    }
+
+    public void codeUp1076() throws IOException {
+        //문자 1개 입력받아 알파벳 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        char b = (char) br.read();
+
+        for(char i = 'a'; i <= b; i++) {
+            System.out.printf("%c" + " ", i);
+        }
+    }
+
+    public void codeUp1077() throws IOException {
+        //정수 1개 입력받아 그 수까지 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        for(int i = 0; i <= a; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public void codeUp1078() throws IOException {
+        //짝수 합 구하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+        int sum = 0;
+        for(int i = 1; i <= a; i++) {
+            if(i % 2 == 0) sum += i;
+        }
+        System.out.println(sum);
+    }
+
+    public void codeUp1079() throws IOException {
+        //원하는 문자가 입력될 때까지 반복 출력하기
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str = br.readLine();
+        StringTokenizer st = new StringTokenizer(str);
+        char[] charArr = new char[st.countTokens()];
+
+        for(int i = 0; st.hasMoreTokens(); i++) {
+            String token = st.nextToken();
+            charArr[i] = token.charAt(0);
+
+            System.out.println(charArr[i]);
+            if(charArr[i] == 'q') break;
+        }
+    }
+
+    public void codeUp1080() throws IOException {
+        //언제까지 더해야 할까?
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        int sum = 0;
+
+        for (int i = 1; i < a; i++) {
+            sum += i;
+            if (sum >= a) {
+                System.out.println(i);
+                break;
+            }
+        }
+    }
+
+    public void codeUp1081() throws IOException {
+        //주사위 2개를 던지면?
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= m; j++) {
+                System.out.printf("%d %d\n", i, j);
+            }
         }
     }
 
