@@ -785,4 +785,115 @@ public class CodeUp1 {
         bw.close();
     }
 
+    public void codeUp1085() throws IOException {
+        //소리 파일 저장 용량 계산하기
+        Scanner sc = new Scanner(System.in);
+
+        long hrz = sc.nextInt();
+        long bit = sc.nextInt();
+        long channel = sc.nextInt();
+        long sec = sc.nextInt();
+
+        double fileSize = (double) (hrz * bit * channel * sec) / 8 / 1024 / 1024;
+
+        System.out.printf("%.1f MB", fileSize);
+    }
+
+    public void codeUp1086() throws IOException {
+        //그림 파일 저장 용량 계산하기
+        Scanner sc = new Scanner(System.in);
+
+        long pix1 = sc.nextInt();
+        long pix2 = sc.nextInt();
+        long bit = sc.nextInt();
+
+        double fileSize = (double) (pix1 * pix2 * bit) / 8 / 1024 / 1024;
+        System.out.printf("%.2f MB", fileSize);
+    }
+
+    public void codeUp1087() throws IOException {
+        //여기까지! 이제 그만~
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+        int sum = 0;
+        for (int i = 0; i <= a; i++) {
+            sum += i;
+            if (sum >= a) break;
+        }
+        System.out.println(sum);
+    }
+
+    public void codeUp1088() throws IOException {
+        //3의 배수는 통과?
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        for(int i = 0; i <= a; i ++) {
+            if(i % 3 == 0) {
+                continue;
+            } else {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public void codeUp1089() throws IOException {
+        //수 나열하기1
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        for (int i = 1; i < c; i++) {
+            a += (a + b) - a;
+        }
+        System.out.println(a);
+    }
+
+    public void codeUp1090() throws IOException {
+        //수 나열하기2
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextInt();
+        long b = sc.nextInt();
+        long c = sc.nextInt();
+        //2부터 시작해서 3씩 곱한 7번째 수가 무엇인지?
+
+        long result = a;
+        for (int i = 1; i < c; i++) {
+            result *= b;
+        }
+        System.out.println(result);
+    }
+
+    public void codeUp1091() throws IOException {
+        //수 나열하기3
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextInt();
+        long b = sc.nextInt();
+        long c = sc.nextInt();
+        long d = sc.nextInt();
+
+        long result = a;
+        for (int i = 1; i < d; i++) {
+            result = result * b + c;
+        }
+        System.out.println(result);
+    }
+
+    public void codeUp1092() throws IOException {
+        //함께 문제 푸는 날
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int day = 1;
+
+        while(day % a != 0 || day % b != 0 || day % c != 0) {
+            day++;
+        }
+        System.out.println(day);
+    }
 }

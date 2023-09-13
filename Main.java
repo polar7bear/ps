@@ -1,29 +1,19 @@
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int r = sc.nextInt();
-        int g = sc.nextInt();
+        int a = sc.nextInt();
         int b = sc.nextInt();
-        int cnt = 0;
+        int c = sc.nextInt();
 
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < g; j++) {
-                for (int k = 0; k < b; k++) {
-                    String str = i + " " + j + " " + k;
-                    bw.write(str + "\n");
-                    cnt++;
-                    bw.flush();
-                }
-            }
+        int day = 1;
+
+        while(day % a != 0 || day % b != 0 || day % c != 0) {
+            day++;
         }
-        bw.write(Integer.toString(cnt));
-        bw.close();
+        System.out.println(day);
     }
 }
+
