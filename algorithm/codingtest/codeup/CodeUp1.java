@@ -896,4 +896,38 @@ public class CodeUp1 {
         }
         System.out.println(day);
     }
+
+    public void codeUp1093() throws IOException {
+        //이상한 출석 번호 부르기1
+        Scanner sc = new Scanner(System.in);
+
+        int cnt = sc.nextInt(); //부른 횟수
+        int[] numArr = new int[23];
+
+        for (int i = 0; i < cnt; i++) {
+            int num = sc.nextInt();
+            numArr[num - 1] += 1;
+        }
+
+        for (int i = 0; i < numArr.length; i++) {
+            System.out.print(numArr[i] + " ");
+        }
+    }
+
+    public void codeUp1094() throws IOException {
+        //이상한 출석 번호 부르기2
+        Scanner sc = new Scanner(System.in);
+
+        int cnt = sc.nextInt(); //부른 횟수
+        int[] numArr = new int[cnt];
+
+        for (int i = 1; i <= cnt; i++) {
+            int num = sc.nextInt();
+            numArr[numArr.length - i] += num;
+        }
+
+        for (int i = 0; i < numArr.length; i++) {
+            System.out.print(numArr[i] + " ");
+        }
+    }
 }
