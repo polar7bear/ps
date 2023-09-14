@@ -1,8 +1,11 @@
+package algorithm.study;
+
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
+public class Doit {
+
+    public void ch01Ex01() throws IOException {
         //정수 3개 입력받고 3개의 중앙값 구하기
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
@@ -28,4 +31,3 @@ public class Main {
         System.out.println(mid);
     }
 }
-
