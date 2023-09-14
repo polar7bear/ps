@@ -625,9 +625,9 @@ public class CodeUp1 {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        while(st.hasMoreTokens()) {
+        while (st.hasMoreTokens()) {
             String token = st.nextToken();  //nextToken()을 변수에 담고 while문 안에 포함 시켜줘야 함.
-            if(token.equals("0")) break;
+            if (token.equals("0")) break;
             bw.write(token);
             bw.newLine();
         }
@@ -640,7 +640,7 @@ public class CodeUp1 {
 
         int a = Integer.parseInt(br.readLine());
 
-        while(a >= 1) {
+        while (a >= 1) {
             System.out.println(a);
             a -= 1;
         }
@@ -652,7 +652,7 @@ public class CodeUp1 {
 
         int a = Integer.parseInt(br.readLine());
 
-        while(a != 0) {
+        while (a != 0) {
             a -= 1;
             System.out.println(a);
         }
@@ -664,7 +664,7 @@ public class CodeUp1 {
 
         char b = (char) br.read();
 
-        for(char i = 'a'; i <= b; i++) {
+        for (char i = 'a'; i <= b; i++) {
             System.out.printf("%c" + " ", i);
         }
     }
@@ -675,7 +675,7 @@ public class CodeUp1 {
 
         int a = Integer.parseInt(br.readLine());
 
-        for(int i = 0; i <= a; i++) {
+        for (int i = 0; i <= a; i++) {
             System.out.println(i);
         }
     }
@@ -686,8 +686,8 @@ public class CodeUp1 {
 
         int a = Integer.parseInt(br.readLine());
         int sum = 0;
-        for(int i = 1; i <= a; i++) {
-            if(i % 2 == 0) sum += i;
+        for (int i = 1; i <= a; i++) {
+            if (i % 2 == 0) sum += i;
         }
         System.out.println(sum);
     }
@@ -699,12 +699,12 @@ public class CodeUp1 {
         StringTokenizer st = new StringTokenizer(str);
         char[] charArr = new char[st.countTokens()];
 
-        for(int i = 0; st.hasMoreTokens(); i++) {
+        for (int i = 0; st.hasMoreTokens(); i++) {
             String token = st.nextToken();
             charArr[i] = token.charAt(0);
 
             System.out.println(charArr[i]);
-            if(charArr[i] == 'q') break;
+            if (charArr[i] == 'q') break;
         }
     }
 
@@ -729,8 +729,8 @@ public class CodeUp1 {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= m; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 System.out.printf("%d %d\n", i, j);
             }
         }
@@ -741,7 +741,7 @@ public class CodeUp1 {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt(16); // nextInt(16) 16진법으로 받아올 수 있음.
 
-        for(int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 15; i++) {
             System.out.printf("%X*%X=%X\n", a, i, a * i);
         }
     }
@@ -830,8 +830,8 @@ public class CodeUp1 {
 
         int a = Integer.parseInt(br.readLine());
 
-        for(int i = 0; i <= a; i ++) {
-            if(i % 3 == 0) {
+        for (int i = 0; i <= a; i++) {
+            if (i % 3 == 0) {
                 continue;
             } else {
                 System.out.print(i + " ");
@@ -891,7 +891,7 @@ public class CodeUp1 {
 
         int day = 1;
 
-        while(day % a != 0 || day % b != 0 || day % c != 0) {
+        while (day % a != 0 || day % b != 0 || day % c != 0) {
             day++;
         }
         System.out.println(day);
@@ -928,6 +928,89 @@ public class CodeUp1 {
 
         for (int i = 0; i < numArr.length; i++) {
             System.out.print(numArr[i] + " ");
+        }
+    }
+
+    public void codeUp1095() throws IOException {
+        //이상한 출석 번호 부르기3
+        Scanner sc = new Scanner(System.in);
+
+        int cnt = sc.nextInt(); //부른 횟수
+        int[] numArr = new int[cnt];
+        int min = 23;
+
+        for (int i = 0; i < cnt; i++) {
+            numArr[i] += sc.nextInt();
+        }
+
+        for (int i = 0; i < numArr.length; i++) {
+            if (numArr[i] < min) {
+                min = numArr[i];
+            }
+        }
+        System.out.println(min);
+    }
+
+    public void codeUp1096() throws IOException {
+        //바둑팔에 흰 돌 놓기
+        /* 바둑알의 개수 입력
+         * 바둑알의 위치를 개수만큼 입력
+         * 가, 세
+         * 1, 1
+         * 2, 2 */
+        Scanner sc = new Scanner(System.in);
+        int cnt = sc.nextInt();
+        int[][] baduk = new int[19][19];
+        int x = 0, y = 0;
+
+        for (int i = 0; i < cnt; i++) {
+            x = sc.nextInt();
+            y = sc.nextInt();
+            baduk[x - 1][y - 1] = 1;
+        }
+
+        for (int i = 0; i < 19; i++) {
+            for (int j = 0; j < 19; j++) {
+                System.out.print(baduk[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void codeUp1097() throws IOException {
+        //바둑알 십자 뒤집기
+        Scanner sc = new Scanner(System.in);
+
+        int[][] baduk = new int[19][19];
+
+        for (int i = 0; i < baduk.length; i++) {
+            for (int j = 0; j < baduk.length; j++) {
+                baduk[i][j] = sc.nextInt();
+            }
+        }
+
+        int cnt = sc.nextInt();
+
+        for (int i = 0; i < cnt; i++) {
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
+
+            for (int j = 0; j < baduk.length; j++) {
+                if (baduk[x][j] == 0) baduk[x][j] = 1;
+                else baduk[x][j] = 0;
+            }
+            for (int k = 0; k < baduk.length; k++) {
+                if (baduk[k][y] == 0) baduk[k][y] = 1;
+                else baduk[k][y] = 0;
+            }
+        }
+
+        for (int i = 0; i < baduk.length; i++) {
+            for (int j = 0; j < baduk.length; j++) {
+                System.out.print(baduk[i][j] + " ");
+            }
+
+            System.out.println();
         }
     }
 }

@@ -1,29 +1,40 @@
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
-        int cnt = sc.nextInt(); //부른 횟수
-        int[] numArr = new int[cnt];
-        int min = 0;
+        int[][] baduk = new int[19][19];
 
-        for (int i = 0; i < cnt; i++) {
-            int num = sc.nextInt();
-            numArr[i] += num;
+        for(int i = 0; i < baduk.length; i++) {
+            for(int j = 0; j < baduk.length; j++) {
+                baduk[i][j] = sc.nextInt();
+            }
         }
-        System.out.println(Arrays.toString(numArr));
-        for (int i = 1; i < numArr.length; i++) {
-            min = numArr[0];
 
-            if(numArr[i] < min) min = numArr[i];
-            //0번째 인덱스보다 1 이 작으면 min은 1
-            //2번째보다
+        int cnt = sc.nextInt();
+
+        for(int i = 0; i < cnt; i++) {
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
+
+            for(int j = 0; j < baduk.length; j++) {
+                if(baduk[x][j] == 0) baduk[x][j] = 1;
+                else baduk[x][j] = 0;
+            }
+            for(int k = 0; k <baduk.length; k++) {
+                if(baduk[k][y] == 0) baduk[k][y] = 1;
+                else baduk[k][y] = 0;
+            }
         }
-        System.out.println(min);
+
+        for(int i = 0; i < baduk.length; i++) {
+            for(int j = 0; j < baduk.length; j++) {
+                System.out.print(baduk[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
 
