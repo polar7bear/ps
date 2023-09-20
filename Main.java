@@ -1,31 +1,28 @@
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //정수 3개 입력받고 3개의 중앙값 구하기
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-        int mid = 0;    //중앙값을 담을 변수 초기화
 
-        if(a >= b) {
-            if(c >= a) {    //a가 b이상 c 이하일때 중앙값은 a
-                mid = a;
-            } else if(b >= c) { // b가 a이하이고 c이상일때 중앙값은 c
-                mid = b;
-            } else {
-                mid = c;
-            }
-        } else if(a > c) {
-            mid = a;
-        } else if(b > c) {
-            mid = c;
-        } else {
-            mid = b;
+        // x의 자릿수 합으로 x가 나누어진다면 그것은 하샤드 수이다. 하샤드 수이면 true 아니라면 false를 return
+        int x = 13;
+        boolean answer = true;
+        int sum = 0;
+        String[] strArr = String.valueOf(x).split("");
+
+        int[] intArr = Arrays.stream(strArr)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        for(int i = 0; i < intArr.length; i++) {
+            sum += intArr[i];
+
+            if(x % sum == 0) answer = true;
+            else answer = false;
         }
-        System.out.println(mid);
+        System.out.println(answer);
+
     }
 }
 

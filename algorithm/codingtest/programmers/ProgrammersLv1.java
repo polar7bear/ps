@@ -103,4 +103,37 @@ public class ProgrammersLv1 {
 
         return answer;
     }
+
+    long solution7(long n) {
+        //정수 내림차순 정렬
+        String[] strArr = String.valueOf(n).split("");
+        StringBuilder sb = new StringBuilder();
+
+        Arrays.sort(strArr);
+
+        for(String i : strArr) sb.append(i);
+        long result = Long.parseLong(sb.reverse().toString());
+
+        return result;
+    }
+
+    boolean solution8(int x) {
+        //하샤드 수 (x의 자릿수 합으로 x가 나누어진다면 그것은 하샤드 수이다. 하샤드 수이면 true 아니라면 false를 return)
+        boolean answer = true;
+        int sum = 0;
+        String[] strArr = String.valueOf(x).split("");
+
+        int[] intArr = Arrays.stream(strArr)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        for(int i = 0; i < intArr.length; i++) {
+            sum += intArr[i];
+
+            if(x % sum == 0) answer = true;
+            else answer = false;
+        }
+        return answer;
+    }
+
 }
