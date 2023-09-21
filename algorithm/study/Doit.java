@@ -30,4 +30,18 @@ public class Doit {
         }
         System.out.println(mid);
     }
+
+    public void ch01Ex07() throws IOException {
+        //1부터 n까지 정수의 합 구하기
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int sum = 0;
+        for(int i = 0; i <= n; i++) {
+            sum += i;
+        }
+        System.out.println("1부터 n까지 정수의 합 : " + sum);
+    }
+
+
 }
