@@ -3,7 +3,7 @@ package algorithm.study;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class pracQt {
+public class PracQt {
 
     public void q7() throws IOException {
         /*연습문제 Q7
