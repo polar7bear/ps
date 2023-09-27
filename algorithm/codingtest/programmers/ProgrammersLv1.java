@@ -136,4 +136,112 @@ public class ProgrammersLv1 {
         return answer;
     }
 
+    long solution9(int a, int b) {
+        //두 정수 사이의 합
+        //ps. 등차수열 합 공식
+        //(b - a + 1) * (a + b) / 2
+        long answer = 0;
+
+        if(a <= b) {
+            for(int i = a; i <= b; i++) {
+                answer += i;
+            }
+        } else if(a >= b) {
+            for(int i = b; i <= a; i++) {
+                answer += i;
+            }
+        }
+        return answer;
+    }
+
+    int solution10(int num) {
+        //콜라츠 추측
+        int cnt = 0;
+        long answer = num;
+
+        if (num == 1) cnt = 0;
+        while (true) {
+            if (answer == 1) break;
+
+            if (answer % 2 == 0) {
+                answer /= 2;
+                cnt++;
+            } else if (answer % 2 != 0 && answer >= 2) {
+                answer = answer * 3 + 1;
+                cnt++;
+            }
+            if (cnt >= 500) {
+                cnt = -1;
+                break;
+            }
+        }
+        return cnt;
+    }
+
+    String solution11(String[] seoul) {
+        //서울에서 김서방 찾기
+        String answer = "";
+
+        for(int i = 0; i < seoul.length; i++) {
+            if(seoul[i].contains("Kim")) {
+                answer = "김서방은 " + i + "에 있다";
+            }
+        }
+        return answer;
+    }
+
+    int[] solution12(int[] arr, int divisor) {
+        //나누어 떨어지는 숫자 배열
+        int j = 0;
+        int idx = 0;
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] % divisor == 0) {
+                j++;
+            }
+        }
+
+        if(j == 0) {
+            int[] answer = {-1};
+            return answer;
+        }
+
+        int[] answer = new int[j];
+
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] % divisor == 0) {
+                answer[idx] = arr[i];
+                idx++;
+            }
+        }
+        Arrays.sort(answer);
+        return answer;
+    }
+
+    int solution13(int[] absolutes, boolean[] signs) {
+        //음양 더하기
+        int answer = 0;
+
+        for(int i = 0; i < absolutes.length; i++) {
+            if(signs[i] == true) {
+                absolutes[i] *= 1;
+            } else if(signs[i] == false) {
+                absolutes[i] *= -1;
+            }
+            answer += absolutes[i];
+        }
+        return answer;
+    }
+
+    String solution14(String phone_number) {
+        //핸드폰 번호 가리기
+        StringBuilder sb = new StringBuilder();
+
+        String star = phone_number.substring(0, phone_number.length() - 4);
+        String last4 = phone_number.substring(phone_number.length() - 4, phone_number.length());
+
+        for(int i = 0; i < star.length(); i++) {
+            sb.append("*");
+        }
+        return sb + last4;
+    }
 }
