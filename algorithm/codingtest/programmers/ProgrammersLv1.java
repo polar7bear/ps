@@ -244,4 +244,62 @@ public class ProgrammersLv1 {
         }
         return sb + last4;
     }
+
+    int[] solution15(int[] arr) {
+        //제일 작은 수 제거하기
+        int[] answer = new int[arr.length - 1];
+        int min = arr[0];
+
+        if(arr.length <= 1) {
+            int[] tmp = {-1};
+            return tmp;
+        }
+
+        for(int i = 0; i < arr.length; i++) {
+            min = Math.min(min, arr[i]);
+        }
+
+        for(int i = 0, k = 0; i < arr.length; i++) {
+            if(arr[i] != min) {
+                answer[k] = arr[i];
+                k++;
+            }
+        }
+        return answer;
+    }
+
+    String solution16(String s) {
+        //가운데 글자 가져오기
+        String answer = "";
+        int idx = s.length() / 2;
+
+        if(s.length() % 2 != 0) {
+            answer = s.substring(idx, idx + 1);
+        } else {
+            answer = s.substring(idx - 1, idx + 1);
+        }
+        return answer;
+    }
+
+    String solution17(int n) {
+        //수박수박수박수박수?
+        StringBuilder sb = new StringBuilder();
+        String a = "수", b = "박";
+
+        for(int i = 1; i <= n; i++) {
+            sb.append(a).append(b);
+        }
+
+        return sb.substring(0, n);
+    }
+
+    int solution18(int[] a, int[] b) {
+        //내적
+        int answer = 0;
+
+        for(int i = 0; i < a.length; i++) {
+            answer += a[i] * b[i];
+        }
+        return answer;
+    }
 }
