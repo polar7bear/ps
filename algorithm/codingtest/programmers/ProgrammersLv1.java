@@ -323,4 +323,33 @@ public class ProgrammersLv1 {
         }
         return sum;
     }
+
+    String solution20(String s) {
+        //문자열 내림차순으로 배치하기
+        //버블정렬 활용했음
+        char[] arr = s.toCharArray();
+        char tmp;
+
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = 0; j <arr.length - i - 1; j++) {
+                if(arr[j] < arr[j+1]) {
+                    tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+        }
+        return new String(arr);
+    }
+
+    long solution21(int price, int money, int count) {
+        //부족한 금액 계산하기
+        long charge = 0;
+
+        for(int i = 1; i <= count; i++) charge += price * i;
+        if(money > charge) return 0;
+
+        long answer = charge - money;
+        return answer;
+    }
 }
