@@ -302,4 +302,25 @@ public class ProgrammersLv1 {
         }
         return answer;
     }
+
+    int solution19(int left, int right) {
+        //약수의 개수와 덧셈
+        int cnt = 0;
+        int sum = 0;
+
+        for(int i = left; i <= right; i++) {
+            cnt = 0;
+            for(int j = 1; j <= i; j++) {
+                if(i % j == 0) {
+                    cnt++;
+                }
+            }
+            if(cnt % 2 == 0) {
+                sum += i;
+            } else {
+                sum -= i;
+            }
+        }
+        return sum;
+    }
 }

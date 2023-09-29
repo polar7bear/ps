@@ -3,14 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String answer = "";
-        int n = 2;
         StringBuilder sb = new StringBuilder();
-        String a = "수", b = "박";
+        String s = "Zbcdefg";
+        String result = sb.append(s).reverse().toString();
 
-        for(int i = 1; i <= n; i++) {
-            sb.append(a).append(b);
-        }
+        System.out.println(result);
+
     }
 }
 
