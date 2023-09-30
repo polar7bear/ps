@@ -1,10 +1,11 @@
+package algorithm.woowacourse;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class Main {
+public class OnboardingQ1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int result = 0; //게임결과
@@ -23,11 +24,11 @@ public class Main {
             System.out.println("불연속된 숫자는 입력이 불가능합니다.");
             e.printStackTrace();
         } else if (pobi[0] % 2 != 1 || crong[0] % 2 != 1
-        || pobi[1] % 2 != 0 || crong[1] % 2 != 0) {
+                || pobi[1] % 2 != 0 || crong[1] % 2 != 0) {
             System.out.println("왼쪽은 홀수, 오른쪽은 짝수만 입력이 가능합니다.");
             e.printStackTrace();
         } else if((pobi[0] == 1 && pobi[1] == 2) || (pobi[0] == 399 && pobi[1] == 400)
-        || (crong[0] == 1 && crong[1] == 2) || (crong[0] == 399 && crong[1] == 400)) {
+                || (crong[0] == 1 && crong[1] == 2) || (crong[0] == 399 && crong[1] == 400)) {
             System.out.println("첫페이지나 마지막 페이지는 입력할 수 없습니다.");
             e.printStackTrace();
         }
@@ -101,4 +102,3 @@ public class Main {
         System.out.println(result);
     }
 }
-
