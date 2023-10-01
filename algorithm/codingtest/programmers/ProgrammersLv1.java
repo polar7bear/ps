@@ -1,6 +1,8 @@
 package algorithm.codingtest.programmers;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ProgrammersLv1 {
 
@@ -352,4 +354,51 @@ public class ProgrammersLv1 {
         long answer = charge - money;
         return answer;
     }
+
+    boolean solution22(String s) {
+        //문자열 다루기 기본
+        boolean answer = true;
+        char[] arr = s.toCharArray();
+
+        if(arr.length == 4 || arr.length == 6) {
+            for(char c : arr) {
+                if(c < '0' || c > '9') {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+        return answer;
+    }
+
+    int[][] solution23(int[][] arr1, int[][] arr2) {
+        //행렬의 덧셈
+        int[][] answer = new int[arr1.length][arr1[0].length];
+        int i = 0, j = 0;
+        int plus = 0;
+
+        for(i = 0; i < arr1.length; i++) {
+            for(j = 0; j < arr1[i].length; j++) {
+                plus = arr1[i][j] + arr2[i][j];
+                answer[i][j] = plus;
+            }
+        }
+        return answer;
+    }
+
+    void solution24() {
+        //직사각형 별 찍기
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        for(int i = 0; i < b; i++) {
+            for(int j = 0; j < a; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
 }
