@@ -21,15 +21,18 @@ public class OnboardingQ1 {
 
         Exception e = new Exception();
         if(pobi[1] != pobi[0] + 1 || crong[1] != crong[0] + 1) {
-            System.out.println("불연속된 숫자는 입력이 불가능합니다.");
+            result = -1;
+            System.out.println(result);
             e.printStackTrace();
         } else if (pobi[0] % 2 != 1 || crong[0] % 2 != 1
                 || pobi[1] % 2 != 0 || crong[1] % 2 != 0) {
-            System.out.println("왼쪽은 홀수, 오른쪽은 짝수만 입력이 가능합니다.");
+            result = -1;
+            System.out.println(result);
             e.printStackTrace();
         } else if((pobi[0] == 1 && pobi[1] == 2) || (pobi[0] == 399 && pobi[1] == 400)
                 || (crong[0] == 1 && crong[1] == 2) || (crong[0] == 399 && crong[1] == 400)) {
-            System.out.println("첫페이지나 마지막 페이지는 입력할 수 없습니다.");
+            result = -1;
+            System.out.println(result);
             e.printStackTrace();
         }
 
@@ -97,8 +100,6 @@ public class OnboardingQ1 {
         } else if(pobiResult == crongResult) {
             result = 0;
         }
-        System.out.println(pobiResult);
-        System.out.println(crongResult);
         System.out.println(result);
     }
 }
