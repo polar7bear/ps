@@ -1,7 +1,9 @@
+package algorithm.codingtest.programmers;
+
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Main {
+public class GcdLcm {
     public static void main(String[] args) throws IOException {
         System.out.println(Arrays.toString(solution(3, 12)));
     }
@@ -24,5 +26,7 @@ public class Main {
         else return gcd(b, a % b);
     }
 }
+
+
 
 
