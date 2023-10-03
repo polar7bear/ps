@@ -400,5 +400,12 @@ public class ProgrammersLv1 {
             System.out.println();
         }
     }
+    int[] solution25(int []arr) {
+    //같은 숫자는 싫어
+    //스택으로 풀어보자
+        int[] answer = {};
+
+        return answer;
+    }
 
 }
