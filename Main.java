@@ -1,27 +1,24 @@
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println(Arrays.toString(solution(3, 12)));
-    }
+        Stack<Integer> s = new Stack<>();
+        int[] arr = {1, 1, 3, 3, 0, 1, 1};
+        int[] answer = {};
 
-    static int[] solution(int n, int m) {
-        //n 3, m 12
-        //큰 수를 작은 수로 나눈 나머지를 r이라 가정하고,
-        //나머지가 0이 될때까지 n % r
-        int[] answer = new int[2];
-        int gcd = gcd(n, m);
-        answer[0] = gcd;
-        answer[1] = (n * m) / gcd;
+        for(int i : arr) {
+            if(s.isEmpty()) s.push(i);
+            else if(s.peek() != i) s.push(i);   //중복 요소 제거
+        }
 
+        answer = new int[s.size()];
 
-        return answer;
-    }
-
-    static int gcd(int a, int b) {
-        if (b == 0) return a;
-        else return gcd(b, a % b);
+        for(int i = answer.length - 1; i >= 0; i--) {
+            answer[i] = s.pop();
+        }
+        System.out.println(Arrays.toString(answer));
     }
 }
 

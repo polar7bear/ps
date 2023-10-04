@@ -3,6 +3,7 @@ package algorithm.codingtest.programmers;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ProgrammersLv1 {
 
@@ -401,11 +402,22 @@ public class ProgrammersLv1 {
         }
     }
     int[] solution25(int []arr) {
-    //같은 숫자는 싫어
-    //스택으로 풀어보자
+        //같은 숫자는 싫어
         int[] answer = {};
+        Stack<Integer> s = new Stack<>();
+
+        for(int i : arr) {
+            if(s.isEmpty()) s.push(i);
+            else if(s.peek() != i) s.push(i);   //중복 요소 제거
+        }
+
+        answer = new int[s.size()];
+
+        for(int i = answer.length - 1; i >= 0; i--) {
+            answer[i] = s.pop();    //스택은 꼭대기부터 요소를 pop 해야하므로 인덱스 가장 마지막부터 선형검색
+        }
 
         return answer;
     }
-
+    
 }
