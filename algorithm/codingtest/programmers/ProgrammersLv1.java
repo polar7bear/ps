@@ -419,5 +419,48 @@ public class ProgrammersLv1 {
 
         return answer;
     }
+
+    int solution26(int n) {
+        //3진법 뒤집기
+        int answer = 0;
+        int count = 0;
+        Stack<Integer> s = new Stack<>();
+
+        while(n > 0) {
+            count++;
+            s.push(n % 3);
+            n /= 3;
+        }
+
+        for(int i = 0; i < count; i++) {
+            answer += s.pop() * Math.pow(3, i);
+        }
+        return answer;
+    }
+
+    int solution27(int[] d, int budget) {
+        //예산 (정해진 총 예산으로 각 부서마다 필요한 예산에 따라 최대한 지원해 줄 수 있는 부서의 개수를 구하는 것이므로 그리디 알고리즘이란 것을 추측해볼 수 있었음.)
+        int answer = 0;
+        int result = 0;
+        int tmp = 0;
+
+        //오름차순 버블정렬 (오름차순으로 정렬을 하는 이유는 최대한 많은 부서를 지원 해주어야 하기 때문에 필요한 예산이 적은 부서 순서대로 오름차순 정렬을 해주었음)
+        for(int i = 0; i < d.length; i++) {
+            for(int j = 0; j < d.length - i - 1; j++) {
+                if(d[j] > d[j+1]) {
+                    tmp = d[j];
+                    d[j] = d[j+1];
+                    d[j+1] = tmp;
+                }
+            }
+        }
+
+        for(int i = 0; i < d.length; i++) {
+            if(answer + d[i] > budget) break;
+            answer += d[i];
+            result++;
+        }
+        return result;
+    }
     
 }
