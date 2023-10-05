@@ -1,8 +1,11 @@
-import java.io.IOException;
-import java.sql.Array;
-import java.util.*;
+package algorithm.study.greedy;
 
-public class Main {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Greedy4 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
@@ -26,5 +29,3 @@ public class Main {
         System.out.println(result);
     }
 }
-
-
