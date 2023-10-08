@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class Implement1 {
     public static void main(String[] args) throws IOException {
+        //상하좌우
         //구현 (시뮬레이션, 완전탐색) 알고리즘
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int area = Integer.parseInt(br.readLine());
