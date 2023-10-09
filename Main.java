@@ -1,43 +1,40 @@
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //성실한 개미
-        Scanner sc = new Scanner(System.in);
-        int[][] maze = new int[10][10];
-        int x = 1;
-        int y = 1;
+        String s = "3people unFollowed me";
+        StringTokenizer st = new StringTokenizer(s, " ");
+        String[] arr = new String[st.countTokens()];
 
-        for(int i = 0; i < maze.length; i++) {
-            for(int j = 0; j < maze[i].length; j++) {
-                maze[i][j] = sc.nextInt();
-            }
+        String answer = "";
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = st.nextToken();
         }
 
-        while(true) {
-            if(maze[x][y] == 2) {
-                maze[x][y] = 9;
-                break;
+        for(int i = 0; i < arr.length; i++) {
+            String str = arr[i];
+
+            if(arr[i].length() == 0) {
+                answer += " ";
             }
-            maze[x][y] = 9;
-            if(maze[x][y+1] == 0 || maze[x][y+1] == 2) {
-                y++;
-                continue;
-            } else if(maze[x][y+1] == 1) {
-                if(maze[x+1][y] == 0 || maze[x+1][y] == 2) {
-                    x++;
-                    continue;
-                } else if(maze[x+1][y] == 1) break;
+            else {
+                answer += str.substring(0, 1).toUpperCase();
+                answer += str.substring(1).toLowerCase();
+                answer += " ";
             }
+
         }
-        for (int i = 0; i < 10; i++) {
-            for(int j = 0; j < 10; j++) {
-                System.out.print(maze[i][j] + " ");
-            }
-            System.out.println();
+
+        // 입력 받은 문자열의 맨 마지막이 " " 라면 바로 answer 반환
+        if(s.substring(s.length()-1, s.length()).equals(" ")){
+            System.out.println(answer);
         }
+
+        // 맨 마지막 " " 제거하고 answer 반환
+        System.out.println(answer.substring(0, answer.length()-1));
     }
 }
+
 
 
