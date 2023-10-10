@@ -1,10 +1,12 @@
+package algorithm.codingtest.boj;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Stack;
 
-public class Main {
-
+public class B9012 {
+    //괄호
     public static String stack(String str) {
         Stack<Character> s = new Stack<>();
 
@@ -39,6 +41,3 @@ public class Main {
         System.out.println(sb);
     }
 }
-
-
-
