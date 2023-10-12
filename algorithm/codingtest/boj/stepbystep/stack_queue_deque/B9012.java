@@ -1,4 +1,4 @@
-package algorithm.codingtest.boj;
+package algorithm.codingtest.boj.stepbystep.stack_queue_deque;
 
 import java.io.BufferedReader;
 import java.io.IOException;
