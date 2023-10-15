@@ -462,5 +462,15 @@ public class ProgrammersLv1 {
         }
         return result;
     }
+
+    int solution28(String t, String p) {
+        //크기가 작은 부분문자열
+        int answer = 0;
+
+        for(int i = 0; i < t.length() - p.length() + 1; i++) {
+            if (Long.parseLong(t.substring(i, p.length() + i)) <= Long.parseLong(p)) answer++;
+        }
+        return answer;
+    }
     
 }
