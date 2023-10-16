@@ -472,5 +472,31 @@ public class ProgrammersLv1 {
         }
         return answer;
     }
-    
+
+    int solution29(int[] number) {
+        //삼총사
+        int answer = 0;
+        for(int i = 0; i < number.length; i++) {
+            for(int j = i + 1; j < number.length; j++) {
+                for(int k = j + 1; k < number.length; k++) {
+                    if(number[i] + number[j] + number[k] == 0) answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
+    int solution30(int[][] sizes) {
+        //최소직사각형
+        int prevMax = 0;
+        int prevMin = 0;
+        for(int[] size : sizes) {
+            int curMax = Math.max(size[0], size[1]);
+            int curMin = Math.min(size[0], size[1]);
+
+            prevMax = Math.max(curMax, prevMax);
+            prevMin = Math.max(curMin, prevMin);
+        }
+        return prevMax * prevMin;
+    }
 }

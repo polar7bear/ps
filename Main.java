@@ -1,42 +1,27 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
+    static int solution(int[][] sizes) {
+        int prevMax = 0;
+        int prevMin = 0;
+        for(int[] size : sizes) {
+            int curMax = Math.max(size[0], size[1]);
+            int curMin = Math.min(size[0], size[1]);
 
-    public static String stack(String str) {
-        Stack<Character> s = new Stack<>();
-
-        for(int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-
-            if(ch == '(') {
-                s.push(ch);
-            } else if(s.empty()) {
-                return "NO";
-            } else {
-                s.pop();
-            }
+            prevMax = Math.max(curMax, prevMax);
+            prevMin = Math.max(curMin, prevMin);
         }
+        return prevMax * prevMin;
 
-        if(s.empty()) {
-            return "YES";
-        } else {
-            return "NO";
-        }
+
     }
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int t = Integer.parseInt(br.readLine());
+        int[][] size = {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
+        System.out.println(solution(size));
 
-
-
-        for(int i = 0; i < t; i++) {
-            sb.append(stack(br.readLine())).append("\n");
-        }
-        System.out.println(sb);
     }
 }
 
