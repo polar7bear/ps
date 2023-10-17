@@ -499,4 +499,35 @@ public class ProgrammersLv1 {
         }
         return prevMax * prevMin;
     }
+
+    String solution31(String s, int n) {
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < s.length(); i++) {
+            int result = s.charAt(i) + n;
+
+            if(s.charAt(i) == ' ') {    //공백이라면 그냥 공백 그대로 출력
+                char ch = s.charAt(i);
+                sb.append(ch);
+                //n은 1이상 25이하이다 result의 결과로 overflow 되어 나올수 있는 최대숫자는 대문자일 경우 115 소문자일 경우 147
+
+            } else if(s.charAt(i) >= 65 && s.charAt(i) <= 90) {    //입력된 문자가 대문자일 때
+                if((result >= 65 && result <= 90)) {    //입력된 문자 + n 의 결과가 대문자 범위이면
+                    sb.append((char) result);            //그대로 출력
+                } else {    //결과가 소문자 범위 밖이라면
+                    char ch = (char) (s.charAt(i) - 26 + n);
+                    sb.append(ch);
+                }
+            } else if(s.charAt(i) >= 97 && s.charAt(i) <= 122) {    //입력된 문자가 소문자일 때
+                if(result >= 97 && result <=122) {  // 결과가 소문자 범위라면
+                    sb.append((char) result);    //그대로 출력
+                } else {    //범위 밖이라면
+                    char ch = (char) (s.charAt(i) - 26 + n);
+                    sb.append(ch);
+                }
+            }
+
+        }
+        return sb.toString();
+    }
 }
