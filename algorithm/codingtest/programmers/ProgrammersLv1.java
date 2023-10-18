@@ -501,6 +501,7 @@ public class ProgrammersLv1 {
     }
 
     String solution31(String s, int n) {
+        //시저 암호
         StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < s.length(); i++) {
@@ -529,5 +530,17 @@ public class ProgrammersLv1 {
 
         }
         return sb.toString();
+    }
+
+    int solution32(String s) {
+        //숫자 문자열과 영단어
+        int answer = 0;
+        String[] arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+        for(int i = 0; i < arr.length; i++) {
+            s = s.replace(arr[i], Integer.toString(i));
+        }
+        answer = Integer.parseInt(s);
+        return answer;
     }
 }
