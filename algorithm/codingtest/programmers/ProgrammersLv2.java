@@ -85,4 +85,24 @@ public class ProgrammersLv2 {
         }
         return sum;
     }
+
+    boolean solution4(String s) {
+        //올바른 괄호
+        Stack<Character> stack = new Stack<>();
+
+        for(int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if(ch == '(') {
+                stack.push(ch);   //만약 (가 나오면 스택에 push 한다
+            } else if(i == 0 && ch == ')') {    // 첫 인덱스에 )가 들어오면 괄호가 닫힐 수 없으니 바로 false를 리턴
+                return false;
+            } else {            //)가 나오면 원래있던 (를 pop해준다.
+                if(stack.empty()) return false;
+                stack.pop();
+            }
+        }
+        boolean answer = (stack.empty()) ? true : false;    // 만약 스택이 비어있다면 괄호가 올바르게 짝지어졌다는 것이다.
+        return answer;
+    }
 }
