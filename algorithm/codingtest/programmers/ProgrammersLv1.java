@@ -462,5 +462,85 @@ public class ProgrammersLv1 {
         }
         return result;
     }
-    
+
+    int solution28(String t, String p) {
+        //크기가 작은 부분문자열
+        int answer = 0;
+
+        for(int i = 0; i < t.length() - p.length() + 1; i++) {
+            if (Long.parseLong(t.substring(i, p.length() + i)) <= Long.parseLong(p)) answer++;
+        }
+        return answer;
+    }
+
+    int solution29(int[] number) {
+        //삼총사
+        int answer = 0;
+        for(int i = 0; i < number.length; i++) {
+            for(int j = i + 1; j < number.length; j++) {
+                for(int k = j + 1; k < number.length; k++) {
+                    if(number[i] + number[j] + number[k] == 0) answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
+    int solution30(int[][] sizes) {
+        //최소직사각형
+        int prevMax = 0;
+        int prevMin = 0;
+        for(int[] size : sizes) {
+            int curMax = Math.max(size[0], size[1]);
+            int curMin = Math.min(size[0], size[1]);
+
+            prevMax = Math.max(curMax, prevMax);
+            prevMin = Math.max(curMin, prevMin);
+        }
+        return prevMax * prevMin;
+    }
+
+    String solution31(String s, int n) {
+        //시저 암호
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < s.length(); i++) {
+            int result = s.charAt(i) + n;
+
+            if(s.charAt(i) == ' ') {    //공백이라면 그냥 공백 그대로 출력
+                char ch = s.charAt(i);
+                sb.append(ch);
+                //n은 1이상 25이하이다 result의 결과로 overflow 되어 나올수 있는 최대숫자는 대문자일 경우 115 소문자일 경우 147
+
+            } else if(s.charAt(i) >= 65 && s.charAt(i) <= 90) {    //입력된 문자가 대문자일 때
+                if((result >= 65 && result <= 90)) {    //입력된 문자 + n 의 결과가 대문자 범위이면
+                    sb.append((char) result);            //그대로 출력
+                } else {    //결과가 소문자 범위 밖이라면
+                    char ch = (char) (s.charAt(i) - 26 + n);
+                    sb.append(ch);
+                }
+            } else if(s.charAt(i) >= 97 && s.charAt(i) <= 122) {    //입력된 문자가 소문자일 때
+                if(result >= 97 && result <=122) {  // 결과가 소문자 범위라면
+                    sb.append((char) result);    //그대로 출력
+                } else {    //범위 밖이라면
+                    char ch = (char) (s.charAt(i) - 26 + n);
+                    sb.append(ch);
+                }
+            }
+
+        }
+        return sb.toString();
+    }
+
+    int solution32(String s) {
+        //숫자 문자열과 영단어
+        int answer = 0;
+        String[] arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+        for(int i = 0; i < arr.length; i++) {
+            s = s.replace(arr[i], Integer.toString(i));
+        }
+        answer = Integer.parseInt(s);
+        return answer;
+    }
 }
