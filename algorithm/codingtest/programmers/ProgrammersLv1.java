@@ -1,9 +1,7 @@
 package algorithm.codingtest.programmers;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class ProgrammersLv1 {
 
@@ -541,6 +539,24 @@ public class ProgrammersLv1 {
             s = s.replace(arr[i], Integer.toString(i));
         }
         answer = Integer.parseInt(s);
+        return answer;
+    }
+
+    int[] solution33(int[] array, int[][] commands) {
+        //K번째 수
+        int[] answer = new int[commands.length];
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for(int i = 0; i < commands.length; i++) {
+            for(int j = commands[i][0]; j <= commands[i][1]; j++) {
+                list.add(array[j-1]);
+            }
+            Collections.sort(list);
+            answer[i] = list.get(commands[i][2] - 1);
+            list.clear();
+        }
+
         return answer;
     }
 }
