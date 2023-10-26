@@ -1,4 +1,4 @@
-package algorithm.codingtest.boj.map;
+package algorithm.codingtest.boj.map_set_tree_hash;
 
 import java.io.BufferedReader;
 import java.io.IOException;
