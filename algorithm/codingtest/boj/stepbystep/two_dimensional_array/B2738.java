@@ -1,8 +1,6 @@
 package algorithm.codingtest.boj.stepbystep.two_dimensional_array;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class B2738 {
