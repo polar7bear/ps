@@ -38,5 +38,6 @@ public class B10815 {
             }
             System.out.print(result + " ");
         }
+
     }
 }
