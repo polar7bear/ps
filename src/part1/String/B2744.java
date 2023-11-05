@@ -6,7 +6,20 @@ public class B2744 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        StringBuilder sb = new StringBuilder();
+        String input = sc.next();
+        String ans = "";
+        for(int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if(ch >= 'A' && ch <= 'Z') {
+                ans += (char) ('a' + ch - 'A');
+            } else {
+                ans += (char) ('A' + ch - 'a');
+            }
+        }
+        System.out.println(ans);
+
+
+        /*StringBuilder sb = new StringBuilder();
         String input = sc.nextLine();
 
         for(int i = 0; i < input.length(); i++) {
@@ -16,6 +29,6 @@ public class B2744 {
                 sb.append(String.valueOf(input.charAt(i)).toUpperCase());
             }
         }
-        System.out.println(sb);
+        System.out.println(sb);*/
     }
 }
