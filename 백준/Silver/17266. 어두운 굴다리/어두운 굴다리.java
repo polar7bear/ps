@@ -16,7 +16,6 @@ class Main {
         for (int i = 0; i < m; i++) {
             lights.add(Integer.parseInt(st.nextToken()));
         }
-        Collections.sort(lights);
 
         int maxDistance = Math.max(lights.get(0), n - lights.get(m - 1)); // 시작과 끝 지점 처리
         for (int i = 1; i < lights.size(); i++) {
