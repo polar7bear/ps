@@ -28,11 +28,20 @@ public class Main {
         }
 
         Collections.sort(list);
+        int cnt = 1;
 
+        if(list.get(0).id == k) {
+            System.out.println(1);
+            System.exit(0);
+        }
         for(int i = 1; i < list.size(); i++) {
             if(list.get(i-1).compareTo(list.get(i)) != 0) {
-                rank = i + 1;
+                rank += cnt;
+                cnt = 1;
+            } else {
+                cnt++;
             }
+
             if(list.get(i).id == k) {
                 System.out.println(rank);
                 break;
