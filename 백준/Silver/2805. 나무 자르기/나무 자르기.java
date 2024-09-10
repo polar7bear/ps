@@ -10,10 +10,15 @@ public class Main {
 
         int[] arr = new int[n];
         st = new StringTokenizer(br.readLine());
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
 
-        for (int i = 0; i < n; i++) arr[i] = Integer.parseInt(st.nextToken());
-
-        int left = 0, right = Arrays.stream(arr).max().getAsInt();
+        int left = 0, right = max;
         int res = 0;
 
         while (left <= right) {
