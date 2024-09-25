@@ -22,13 +22,15 @@ public class Main {
             Queue<int[]> importance = new LinkedList<>();
 
             for (int j = 0; j < n; j++) {
-                importance.add(new int[]{j, Integer.parseInt(st.nextToken())}); // 문서의 위치와 중요도를 배열에 저장한다
+                importance.add(new int[]{j, Integer.parseInt(st.nextToken())}); // [문서의 위치, 문서의 중요도]
             }
+
             int cnt = 0;
+            boolean canPrint;
 
             while (!importance.isEmpty()) {
                 int[] current = importance.poll();
-                boolean canPrint = true;
+                canPrint = true;
 
                 for (int[] q : importance) {
                     if (current[1] < q[1]) { // 중요도를 비교함
