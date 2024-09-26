@@ -1,26 +1,34 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
-import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine()), n;
         Map<String, Integer> map;
-        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
+
         while (t-- > 0) {
-            int n = Integer.parseInt(br.readLine());
+            n = Integer.parseInt(br.readLine());
             map = new HashMap<>();
             int res = 1;
+
             while (n-- > 0) {
-                st = new StringTokenizer(br.readLine());
-                String value = st.nextToken();
-                String key = st.nextToken();
+                String input = br.readLine();
+                int idx = input.indexOf(" ");
+                String key = input.substring(idx + 1);
+
                 map.put(key, map.getOrDefault(key, 0) + 1);
             }
 
-            for (int count : map.values()) res *= (count + 1);
-
-            System.out.println(res-1);
+            for (int val : map.values()) {
+                res *= (val + 1);
+            }
+            sb.append(res - 1).append("\n");
         }
+        System.out.println(sb);
+
     }
 }
