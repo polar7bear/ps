@@ -1,41 +1,26 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
+    static List<Integer>[] levels;
+    static int[] numbers;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        Integer[] a = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).boxed().toArray(Integer[]::new);
+
+        int[] a = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         Integer[] b = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).boxed().toArray(Integer[]::new);
-        boolean[] usedA = new boolean[n];
-        boolean[] usedB = new boolean[n];
 
-        int res = 0;
+        Arrays.sort(a);
+        Arrays.sort(b, Collections.reverseOrder());
+
+        int sum = 0;
         for (int i = 0; i < n; i++) {
-
-            int min = -1;
-            for (int j = 0; j < n; j++) {
-                if (!usedA[j] && (min == -1 || a[j] < a[min])) {
-                    min = j;
-                }
-            }
-
-            int max = -1;
-            int idx = -1;
-            for (int j = 0; j < n; j++) {
-                if (!usedB[j] && (idx == -1 || b[j] > max)) {
-                    max = b[j];
-                    idx = j;
-                }
-            }
-
-            res += a[min] * max;
-            usedA[min] = true;
-            usedB[idx] = true;
+            sum += a[i] * b[i];
         }
-        System.out.println(res);
+        System.out.println(sum);
     }
 }
-
