@@ -1,37 +1,35 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
-    static int[] graph;
-    static int n, k;
+    static int subin, bro;
+    static int[] route;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());
-        k = Integer.parseInt(st.nextToken());
-        graph = new int[100001];
-
-        if (n == k) {
+        subin = Integer.parseInt(st.nextToken());
+        bro = Integer.parseInt(st.nextToken());
+        if (subin == bro) {
             System.out.println(0);
-            System.exit(0);
+            return;
         }
 
-        bfs(n);
+        route = new int[100001];
+
+        bfs(subin);
     }
 
-    private static void bfs(int t) {
-        Queue<Integer> q = new LinkedList<>();
-        graph[t] = 1;
-        q.add(t);
+    static void bfs(int subin) {
+        Deque<Integer> q = new ArrayDeque<>();
+        route[subin] = 1;
+        q.add(subin);
 
         while (!q.isEmpty()) {
-            int now = q.poll();
+            int now = q.pollFirst();
 
             for (int i = 0; i < 3; i++) {
                 int next = 0;
@@ -43,18 +41,18 @@ public class Main {
                     next = now * 2;
                 }
 
-                if (next < 0 || next >= graph.length) continue;
+                if (next < 0 || next >= route.length) continue;
 
-                if (next == k) {
-                    System.out.println(graph[now]);
+                if (next == bro) {
+                    System.out.println(route[now]);
                     return;
                 }
-                if (graph[next] == 0) {
-                    graph[next] = graph[now] + 1;
+
+                if (route[next] == 0) {
+                    route[next] = route[now] + 1;
                     q.add(next);
                 }
             }
         }
     }
 }
-
