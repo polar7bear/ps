@@ -1,51 +1,46 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //스위치 켜고 끄기
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int sw = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        int[] switches = new int[n + 1];
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int[] arr = new int[sw];
-
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        for (int i = 1; i <= n; i++) {
+            switches[i] = Integer.parseInt(st.nextToken());
         }
 
-        int student = Integer.parseInt(br.readLine());
+        int students = Integer.parseInt(br.readLine());
 
-        while (student-- > 0) {
-            st = new StringTokenizer(br.readLine(), " ");
+        while (students-- > 0) {
+            st = new StringTokenizer(br.readLine());
             int gender = Integer.parseInt(st.nextToken());
             int num = Integer.parseInt(st.nextToken());
 
             if (gender == 1) {
-                for (int j = num - 1; j < arr.length; j += num) {
-                    arr[j] = arr[j] == 1 ? 0 : 1;
+                for (int i = num; i <= n; i += num) {
+                    switches[i] = switches[i] == 1 ? 0 : 1;
                 }
-            }
-            if (gender == 2) { // 여자일 때
-                arr[num - 1] = arr[num - 1] == 1 ? 0 : 1;
+            } else if (gender == 2) {
+                switches[num] = switches[num] == 1 ? 0 : 1;
 
-                for (int j = 1; j < arr.length; j++) {
-                    if (num - j - 1 >= 0 && num + j - 1 < arr.length && arr[num - j - 1] == arr[num + j - 1]) {
-                        arr[num - j - 1] = arr[num - j - 1] == 1 ? 0 : 1;
-                        arr[num + j - 1] = arr[num + j - 1] == 1 ? 0 : 1;
+                for (int i = 1; i <= switches.length; i++) {
+                    if (num - i >= 1 && num + i <= n && switches[num - i] == switches[num + i]) {
+                        switches[num - i] = switches[num - i] == 1 ? 0 : 1;
+                        switches[num + i] = switches[num + i] == 1 ? 0 : 1;
                     } else {
                         break;
                     }
                 }
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-            if ((i + 1) % 20 == 0) {
-                System.out.println();
-            }
+        for (int i = 1; i < switches.length; i++) {
+            System.out.print(switches[i] + " ");
+            if (i % 20 == 0) System.out.println();
         }
     }
 }
